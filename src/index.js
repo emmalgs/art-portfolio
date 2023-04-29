@@ -1,5 +1,6 @@
 import './css/styles.css';
 import {twenty22} from './js/2022';
+import { twenty21 } from './js/2021';
 
 function showImage() {
   const image = document.createElement("img");
