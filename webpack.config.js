@@ -48,6 +48,10 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.txt$/,
+        use: 'raw-loader'
       }
     ]
   }
