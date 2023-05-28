@@ -1,12 +1,12 @@
 import { Year, Artwork } from "./paintings";
-import img1 from './../assets/images/paintings/2021/1.JPG';
-import img2 from './../assets/images/paintings/2021/2.png';
-import img3 from './../assets/images/paintings/2021/3.jpg';
-import img4 from './../assets/images/paintings/2021/4.png';
-import img5 from './../assets/images/paintings/2021/5.jpg';
-import img6 from './../assets/images/paintings/2021/6.jpg';
-import img7 from './../assets/images/paintings/2021/7.png';
-import img8 from './../assets/images/paintings/2021/8.jpeg';
+import img1 from './../assets/images/paintings/2021/a.jpg';
+import img2 from './../assets/images/paintings/2021/b.png';
+import img3 from './../assets/images/paintings/2021/c.jpg';
+import img4 from './../assets/images/paintings/2021/d.png';
+import img5 from './../assets/images/paintings/2021/e.jpg';
+import img6 from './../assets/images/paintings/2021/f.jpg';
+import img7 from './../assets/images/paintings/2021/g.png';
+import img8 from './../assets/images/paintings/2021/h.jpeg';
 
 
 export const twenty21 = new Year(2021);
