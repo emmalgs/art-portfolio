@@ -1,6 +1,9 @@
 import './css/styles.css';
 import {twenty22} from './js/2022';
 import { twenty21 } from './js/2021';
+import { allDrawings } from './js/drawings';
+import bio from './assets/text/bio.txt';
+import cv from './assets/text/cv.txt';
 
 window.addEventListener("load", () => {
   homepageImage();
@@ -13,6 +16,18 @@ window.addEventListener("load", () => {
     show2022();
     show2021();
   });
+  document.querySelector(".bio").addEventListener("click", () => {
+    clearMain();
+    bioPage();
+  });
+  document.querySelector(".cv").addEventListener("click", () => {
+    clearMain();
+    cvPage();
+  });
+  document.querySelector(".drawings").addEventListener("click", () => {
+    clearMain();
+    showDrawings();
+  })
 })
 
 function clearMain() {
@@ -65,5 +80,43 @@ function show2021() {
     imgCard.append(info);
 
     imageDiv.append(imgCard);
+  }
+}
+
+function bioPage() {
+  const main = document.querySelector("#images");
+  const paragraphs = bio.split('\n');
+  paragraphs.forEach(paragraph => {
+    if (paragraph !== "")
+    {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      main.append(p);
+    }
+  });
+}
+
+function cvPage() {
+  const main = document.querySelector("#images");
+  const cvDiv = document.createElement("div");
+  cvDiv.classList = "text-container";
+  const paragraphs = cv.split('\n');
+  paragraphs.forEach(paragraph => {
+    if (paragraph !== "")
+    {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      cvDiv.append(p);
+    }
+  });
+  main.append(cvDiv);
+}
+
+function showDrawings() {
+  const main = document.querySelector("#images");
+  for (const key in allDrawings.drawing) {
+    const image = document.createElement("img");
+    image.src = allDrawings.drawing[key].src;
+    main.append(image);
   }
 }
