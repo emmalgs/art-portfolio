@@ -4,29 +4,41 @@ import { twenty21 } from './js/2021';
 import { allDrawings } from './js/drawings';
 import bio from './assets/text/bio.txt';
 import cv from './assets/text/cv.txt';
+import contact from './assets/text/contact.txt';
 
 window.addEventListener("load", () => {
   homepageImage();
+  hideNewsLetterSignup();
   document.querySelector(".home").addEventListener("click", () => {
     clearMain();
+    hideNewsLetterSignup();
     homepageImage();
   })
   document.querySelector(".paintings").addEventListener("click", () => {
     clearMain();
+    hideNewsLetterSignup();
     show2022();
     show2021();
   });
   document.querySelector(".bio").addEventListener("click", () => {
     clearMain();
+    displayNewsletterSignup();
     bioPage();
   });
   document.querySelector(".cv").addEventListener("click", () => {
     clearMain();
+    displayNewsletterSignup();
     cvPage();
   });
   document.querySelector(".drawings").addEventListener("click", () => {
     clearMain();
+    hideNewsLetterSignup();
     showDrawings();
+  });
+  document.querySelector(".contact").addEventListener("click", () => {
+    clearMain();
+    displayNewsletterSignup();
+    showContact();
   })
 })
 
@@ -76,7 +88,7 @@ function show2021() {
     imgCard.append(image);
 
     const info = document.createElement("p");
-    info.textContent = `${twenty21.art[artwork].title}, ${twenty21.art[artwork].dimensions}, ${twenty21.art[artwork].medium}, 2022`;
+    info.textContent = `${twenty21.art[artwork].title}, ${twenty21.art[artwork].dimensions}, ${twenty21.art[artwork].medium}, 2021`;
     imgCard.append(info);
 
     imageDiv.append(imgCard);
@@ -119,4 +131,32 @@ function showDrawings() {
     image.src = allDrawings.drawing[key].src;
     main.append(image);
   }
+}
+
+function showContact() {
+  const main = document.querySelector("#images");
+  const contactDiv = document.createElement("div");
+  contactDiv.classList = "contact-container";
+  const lines = contact.split('\n');
+  lines.forEach(line => {
+    if (line !== "")
+    {
+      const p = document.createElement('p');
+      p.textContent = line;
+      contactDiv.append(p);
+    }
+  });
+  main.append(contactDiv);
+}
+
+function displayNewsletterSignup() {
+  const footer = document.querySelector('#footer');
+  if (footer.classList.contains('hidden')) {
+    footer.classList.remove('hidden');
+  }
+}
+
+function hideNewsLetterSignup() {
+  const footer = document.querySelector('#footer')
+  footer.classList = 'hidden';
 }
